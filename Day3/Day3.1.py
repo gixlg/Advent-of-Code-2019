@@ -21,16 +21,16 @@ def get_points_from_moves(moves):
 
 def print_points(points1, points2):
     # importing two required module
-    import numpy as np
-    import matplotlib.pyplot as plt
+    import numpy
+    from matplotlib import pyplot as plt
     # Creating a numpy array
-    X1 = np.array([x for (x, y) in points1])
-    Y1 = np.array([y for (x, y) in points1])
+    X1 = numpy.array([x for (x, y) in points1])
+    Y1 = numpy.array([y for (x, y) in points1])
     # Plotting point using sactter method
     plt.scatter(X1, Y1)
 
-    X2 = np.array([x for (x, y) in points2])
-    Y2 = np.array([y for (x, y) in points2])
+    X2 = numpy.array([x for (x, y) in points2])
+    Y2 = numpy.array([y for (x, y) in points2])
     # Plotting point using sactter method
     plt.scatter(X2, Y2)
     plt.show()
