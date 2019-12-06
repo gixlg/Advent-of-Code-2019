@@ -12,6 +12,7 @@ class Operation:
         # B - mode of 2nd parameter,  1 == immediate mode
         # A - mode of 3rd parameter,  0 == position mode,
         #                                  omitted due to being a leading zero
+
         operation = str(operation)
         operation = operation.rjust(5, "0")
         self.opcode=int(operation[3:5])
