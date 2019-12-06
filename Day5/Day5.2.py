@@ -1,26 +1,4 @@
-class Operation:
-    def __init__(self, operation):
-        self.original_operation_code = operation
-        self.get_operation_info(operation)
-
-    def get_operation_info(self, operation):
-        # ABCDE
-        # 1002
-
-        # DE - two-digit opcode,      02 == opcode 2
-        # C - mode of 1st parameter,  0 == position mode
-        # B - mode of 2nd parameter,  1 == immediate mode
-        # A - mode of 3rd parameter,  0 == position mode,
-        #                                  omitted due to being a leading zero
-        operation = str(operation)
-        operation = operation.rjust(5, "0")
-        self.opcode=int(operation[3:5])
-        self. mode_of_1st_parameter = self.get_mode(operation[2])
-        self.mode_of_2nd_parameter = self.get_mode(operation[1])
-        self.mode_of_3rd_parameter = self.get_mode(operation[0])
-
-    def get_mode(self, mode):
-        return "position mode" if mode == "0" else "immediate mode"
+from Day5.Operation import Operation
 
 
 def execute_program(program, input_from_user):
@@ -87,7 +65,7 @@ def execute_program(program, input_from_user):
             input3 = instructions[index + 3]
             parameter1 = instructions[input1] if operation.mode_of_1st_parameter == "position mode" else input1
             parameter2 = instructions[input2] if operation.mode_of_2nd_parameter == "position mode" else input2
-            parameter3 = input3 #instructions[input3] if operation.mode_of_3rd_parameter == "position mode" else input3
+            parameter3 = input3
 
             if parameter1 < parameter2:
                 instructions[parameter3] = 1
@@ -100,8 +78,7 @@ def execute_program(program, input_from_user):
             input3 = instructions[index + 3]
             parameter1 = instructions[input1] if operation.mode_of_1st_parameter == "position mode" else input1
             parameter2 = instructions[input2] if operation.mode_of_2nd_parameter == "position mode" else input2
-            parameter3 = input3  #instructions[input3] if operation.mode_of_3rd_parameter == "position mode" else input3
-            #parameter3 = input3
+            parameter3 = input3
 
             if parameter1 == parameter2:
                 instructions[parameter3] = 1
